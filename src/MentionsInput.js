@@ -887,6 +887,10 @@ class MentionsInput extends React.Component {
     // neglect async results from previous queries
     if (queryId !== this._queryId) return
 
+    if (this.props.onChangeQuery) {
+      this.props.onChangeQuery(query);
+    }
+
     // save in property so that multiple sync state updates from different mentions sources
     // won't overwrite each other
     this.suggestions = {
